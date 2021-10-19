@@ -11,13 +11,25 @@ export default function RiderScreen(props) {
 
     const curRiderId = props.match.params.id;
 
-    const curRiderOrders = data.curOrders.filter((o) => 
-    {
+    const curRiderOrders = data.curOrders.filter((o) => {
         console.log("bforeRiderId" + o.riderId + "    ||   " + curRiderId);
         console.log(o);
-        if(Number(o.riderId) === Number(curRiderId)){
+        if (Number(o.riderId) === Number(curRiderId)) {
             console.log("yesRiderId" + console.log(o.riderId));
-            if(Number(o.accepted) === 2){
+            if (Number(o.accepted) === 2) {
+                console.log("selected cuz accepted is 2");
+                return o;
+            }
+        }
+    }
+    );
+
+    const ongoingOrders = data.curOrders.filter((o) => {
+        console.log("bforeRiderId" + o.riderId + "    ||   " + curRiderId);
+        console.log(o);
+        if (Number(o.riderId) === Number(curRiderId)) {
+            console.log("yesRiderId" + console.log(o.riderId));
+            if (Number(o.accepted) === 1) {
                 console.log("selected cuz accepted is 2");
                 return o;
             }
@@ -32,20 +44,39 @@ export default function RiderScreen(props) {
         props.history.push(acceptPath);
     }
 
+    function handleFinishOrder(order){
+        var idx = data.curOrders.findIndex((x) => order.curOrder.orderId == x.orderId)
+
+        data.curOrders[idx]={...data.curOrders[idx], finished:1};
+        console.log(JSON.stringify(data.curOrders));
+        props.history.push("/");
+    }
+
     return (
         <div>
-            <h1>Orders For You from Admin:-</h1>
+            <h1>New Orders For You from Admin:-</h1>
             {
                 curRiderOrders.map((curOrder) => {
                     return <div className="row">
                         <div>Order Description: {curOrder.orderDescp}</div>
                         <div>Map Link: </div>
                         <div>Rider Id: {curOrder.riderId}</div>
-                        <button onClick={() => handleAccept({ curOrder})}>Accept</button>
+                        <button onClick={() => handleAccept({ curOrder })}>Accept</button>
                         <Link to="/admin/declineOrder"><button>Decline</button></Link>
                     </div>
                 })
             }
+
+            <h1>Ongoing Orders:-</h1>
+            {
+                ongoingOrders.map((curOrder) => {
+                    return <div className="row">
+                        <div>Order Description: {curOrder.orderDescp}</div>
+                        <button onClick={() => handleFinishOrder({ curOrder })}>Finish</button>
+                    </div>
+                })
+            }
+
 
         </div>
 

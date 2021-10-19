@@ -27,7 +27,8 @@ const data = {
         riderId: 5,
         name: "Cristopher Robbins",
         accepted:0,
-        riderCoord: "0.0.0.0"
+        riderCoord: "0.0.0.0",
+        finished:0
     },
     {
         orderDescp: "Santa's Reindeer",
@@ -35,7 +36,8 @@ const data = {
         riderId: 5,
         name: "Cristopher Robbins",
         accepted:2,
-        riderCoord: "0.0.0.0"
+        riderCoord: "0.0.0.0",
+        finished:0
     }
     ]
 };

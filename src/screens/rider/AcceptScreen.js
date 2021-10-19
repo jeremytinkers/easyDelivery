@@ -33,6 +33,8 @@ export default function AcceptScreen(props) {
             }
         }
         console.log(data.curOrders);
+        const nextPath = "/rider/" + curRiderId;
+        props.history.push(nextPath);
     }
 
     return (
