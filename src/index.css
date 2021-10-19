@@ -1,13 +1,116 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Layout for App.js */
+
+.grid-container {
+	display: grid;
+	grid-template-areas: 'header' 'main' 'footer';
+	grid-template-columns: 1fr;
+	grid-template-rows: 5rem 5fr 2rem;
+	height: 100%;
 }
+
+
+/* Style children in the form of a row */
+
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+}
+
+
+/* Header Stylings:- */
+
+header {
+	grid-area: header;
+	background-color: rgb(12, 61, 73);
+	color: white;
+}
+
+
+/* Footer Stylings:- */
+footer {
+	width: 100%;
+	font-size: 1rem;
+	padding: 0.3rem;
+	font-weight: 300;
+	background-color: rgb(12, 61, 73);
+	color: white;
+	margin: 0 auto;
+	text-align: center;
+	justify-content: center;
+}
+
+button {
+	height: auto;
+	width: auto;
+	background-color: #0a0908;
+	border: 0.1rem black solid;
+	border-radius: 0.4rem;
+	color: white;
+	padding: 0.5rem 1.2rem;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	cursor: pointer;
+}
+
+
+.createForm {
+	height: 70%;
+	width: 25%;
+	border: 0.2rem blue solid;
+	background-color: rgb(50, 223, 223);
+	margin: 2rem auto;
+	margin-top: 1.2rem;
+	padding: 2rem;
+	text-align: center;
+	justify-content: center;
+}
+
+.createFormContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.createForm {
+	height: auto;
+	border-radius: 1.6rem;
+	background-color: rgb(253, 192, 24);
+	border: 0.4rem black solid;
+	text-align: center;
+}
+
+.createForm input {
+	padding: 0.4rem;
+	margin: 0.2rem;
+	width: 55%;
+	border-radius: 0.4rem;
+	border: none;
+	text-align: center;
+	border: 0.1rem black solid;
+}
+
+.createForm select {
+	padding: 0.4rem;
+	border-radius: 0.4rem;
+	text-align: center;
+	border: 0.1rem black solid;
+	margin-left: 1rem;
+}
+
+.createForm button {
+	margin-top: 1rem;
+	margin-bottom: -1rem;
+}
+
+
