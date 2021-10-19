@@ -21,9 +21,9 @@ export default function AcceptScreen(props) {
             if (data.curOrders[i].accepted === 2) {
                 //You can remove this later....
                 console.log("bfore acceptedyes: " + JSON.stringify(data.curOrders[i]));
-                if (data.curOrders[i].riderId === Number(curRiderId)) {
+                if (Number(data.curOrders[i].riderId) === Number(curRiderId)) {
                     console.log("bfore riderIdyes: " + JSON.stringify(data.curOrders[i]));
-                    if (data.curOrders[i].orderId === Number(curOrderId)) {
+                    if (data.curOrders[i].orderId == curOrderId) {
 
                         data.curOrders[i] = { ...data.curOrders[i], riderCoord: curCoord };
                         data.curOrders[i] = { ...data.curOrders[i], accepted: 1 };

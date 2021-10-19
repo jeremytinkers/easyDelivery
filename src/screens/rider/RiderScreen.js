@@ -7,16 +7,18 @@ import data from '../../data';
 // console.log("Rider Id:" + curRiderId);
 // curRiderId = Number(curRiderId);
 
-
-
 export default function RiderScreen(props) {
 
     const curRiderId = props.match.params.id;
 
     const curRiderOrders = data.curOrders.filter((o) => 
     {
-        if(o.riderId === Number(curRiderId)){
-            if(o.accepted === 2){
+        console.log("bforeRiderId" + o.riderId + "    ||   " + curRiderId);
+        console.log(o);
+        if(Number(o.riderId) === Number(curRiderId)){
+            console.log("yesRiderId" + console.log(o.riderId));
+            if(Number(o.accepted) === 2){
+                console.log("selected cuz accepted is 2");
                 return o;
             }
         }

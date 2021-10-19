@@ -9,7 +9,7 @@ export default function RiderLoginScreen(props) {
 
 
     function submitHandler() {
-        console.log(curRiderId);
+        // console.log(curRiderId);
 
         if(!isNaN(curRiderId)){
             const riderScreenPath = "/rider/" + curRiderId;
