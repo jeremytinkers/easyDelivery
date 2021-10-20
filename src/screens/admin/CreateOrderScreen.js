@@ -7,9 +7,12 @@ export default function CreateOrderScreen(props) {
 
     const [newOrder, setNewOrder] = useState({
         orderDescp: "",
-        startCoord: "",
-        riderId: "",
-        endCoord: "",
+        riderId: 0,
+        endCoordLat: 0,
+        endCoordLng: 0,
+        startCoordLat: 0,
+        startCoordLng: 0,
+
     });
 
     const availableRiders = data.riderData.filter((r) => r.status !== 0);
@@ -21,10 +24,14 @@ export default function CreateOrderScreen(props) {
         var temp = newOrder;
         if (name === "orderDescp") {
             temp.orderDescp = value;
-        } else if (name === "startCoord") {
-            temp.startCoord = value;
+        } else if (name === "startCoordLat") {
+            temp.startCoordLat = value;
+        } else if(name === "startCoordLng")  {
+            temp.startCoordLng = value;
+        }else if (name === "endCoordLat") {
+            temp.endCoordLat = value;
         } else {
-            temp.endCoord = value;
+            temp.endCoordLng = value;
         }
         setNewOrder(temp);
     }
@@ -53,15 +60,28 @@ export default function CreateOrderScreen(props) {
                         placeholder={"Enter Order Description"}
                     />
                     <input
-                        type="email"
+                        type="number"
                         onChange={handleChange}
-                        name="startCoord"
-                        placeholder="Enter Start Coordinates"
+                        name="startCoordLat"
+                        placeholder="Enter Start Coordinate Lat"
                     />
-                    <input
+                     <input
+                        type="number"
                         onChange={handleChange}
-                        name="endCoord"
-                        placeholder="Enter End Coordinates"
+                        name="startCoordLng"
+                        placeholder="Enter Start Coordinate Lng"
+                    />
+                       <input
+                        type="number"
+                        onChange={handleChange}
+                        name="endCoordLat"
+                        placeholder="Enter End Coordinate Lat"
+                    />
+                     <input
+                        type="number"
+                        onChange={handleChange}
+                        name="endCoordLng"
+                        placeholder="Enter End Coordinate Lng"
                     />
 
                     {/* Get riders who are available from database */}

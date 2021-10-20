@@ -27,8 +27,13 @@ const data = {
         riderId: 5,
         name: "Cristopher Robbins",
         accepted:0,
-        riderCoord: "0.0.0.0",
-        finished:0
+        riderCoordLat:47.4211,
+        riderCoordLng:-72.9903,
+        finished:0,
+        startCoordLat:46.4211,
+        startCoordLng:-75.9903,
+        endCoordLat:47.4211,
+        endCoordLng:-74.9903
     },
     {
         orderDescp: "Santa's Reindeer",
@@ -36,8 +41,13 @@ const data = {
         riderId: 5,
         name: "Cristopher Robbins",
         accepted:2,
-        riderCoord: "0.0.0.0",
-        finished:0
+        riderCoordLat:47.4211,
+        riderCoordLng:-72.9903,
+        finished:0,
+        startCoordLat:47.4211,
+        startCoordLng:-74.9903,
+        endCoordLat:46.4211,
+        endCoordLng:-75.9903
     }
     ]
 };

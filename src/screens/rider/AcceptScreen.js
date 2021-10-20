@@ -7,10 +7,17 @@ export default function AcceptScreen(props) {
     console.log("rider id: " + curRiderId + "  | orderid: " + curOrderId);
 
     var curCoord = "";
+    var local_riderCoordLat = 0
+    var local_riderCoordLng = 0
 
     function handleChange(e) {
-        var { value } = e.target;
-        curCoord = value;
+        var { value, name } = e.target;
+
+        if (name === "riderCoordLat") {
+            local_riderCoordLat = value;
+        } else {
+            local_riderCoordLng = value;
+        }
     }
 
     function submitHandler() {
@@ -25,7 +32,8 @@ export default function AcceptScreen(props) {
                     console.log("bfore riderIdyes: " + JSON.stringify(data.curOrders[i]));
                     if (data.curOrders[i].orderId == curOrderId) {
 
-                        data.curOrders[i] = { ...data.curOrders[i], riderCoord: curCoord };
+                        data.curOrders[i] = { ...data.curOrders[i], riderCoordLat: local_riderCoordLat };
+                        data.curOrders[i] = { ...data.curOrders[i], riderCoordLng: local_riderCoordLng };
                         data.curOrders[i] = { ...data.curOrders[i], accepted: 1 };
                         console.log("after: " + JSON.stringify(data.curOrders[i]));
                     }
@@ -44,9 +52,16 @@ export default function AcceptScreen(props) {
                     <h1>Enter Current Coordinates :-</h1>
                     <form>
                         <input
+                            type="number"
                             onChange={handleChange}
-                            name="riderCurCoord"
-                            placeholder={"Enter your Coordinates"}
+                            name="riderCoordLat"
+                            placeholder={"Enter your Coordinates - Lat"}
+                        />
+                        <input
+                            type="number"
+                            onChange={handleChange}
+                            name="riderCoordLng"
+                            placeholder={"Enter your Coordinates - Lng"}
                         />
                     </form>
 

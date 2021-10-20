@@ -1,7 +1,16 @@
 import { Link } from "react-router-dom";
 import data from "../../data";
 
-export default function AdminScreen() {
+export default function AdminScreen(props) {
+
+    function handleMapRequest(order){
+
+        const mapPath ="/admin/viewMap/" + order.orderId;
+        console.log(JSON.stringify(order));
+        props.history.push(mapPath);
+    }
+
+
     return (
         <div>
             <h1>Orders Status</h1>
@@ -9,7 +18,7 @@ export default function AdminScreen() {
                 data.curOrders.map((curOrder) => {
                     return <div className="row">
                         <div>Order Description: {curOrder.orderDescp}</div>
-                        <div>Map Link: </div>
+                        <button onClick={()=>handleMapRequest(curOrder)}>View On Map</button>
                         <div>Rider Id: {curOrder.riderId}</div>
                         {
                             (curOrder.accepted === 1) ? (<div>Accepted ✔️ </div>) :
