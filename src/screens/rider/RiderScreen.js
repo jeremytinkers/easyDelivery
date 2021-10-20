@@ -44,39 +44,44 @@ export default function RiderScreen(props) {
         props.history.push(acceptPath);
     }
 
-    function handleFinishOrder(order){
+    function handleFinishOrder(order) {
         var idx = data.curOrders.findIndex((x) => order.curOrder.orderId == x.orderId)
 
-        data.curOrders[idx]={...data.curOrders[idx], finished:1};
+        data.curOrders[idx] = { ...data.curOrders[idx], finished: 1 };
         console.log(JSON.stringify(data.curOrders));
         props.history.push("/");
     }
 
     return (
         <div>
-            <h1>New Orders For You from Admin:-</h1>
-            {
-                curRiderOrders.map((curOrder) => {
-                    return <div className="row">
-                        <div>Order Description: {curOrder.orderDescp}</div>
-                        <div>Map Link: </div>
-                        <div>Rider Id: {curOrder.riderId}</div>
-                        <button onClick={() => handleAccept({ curOrder })}>Accept</button>
-                        <Link to="/admin/declineOrder"><button>Decline</button></Link>
-                    </div>
-                })
-            }
+            <div className="orderList">
+                <h1>New Orders For You from Admin:-</h1>
+                {
+                    curRiderOrders.map((curOrder) => {
+                        return <li><div className="row">
+                            <div>Order Description: {curOrder.orderDescp}</div>
+                            <div>Stat Coordinates: {curOrder.startCoordLat} {curOrder.startCoordLat}</div>
+                            <div>End Coordinates: {curOrder.endCoordLat} {curOrder.endCoordLat}</div>
+                            <button onClick={() => handleAccept({ curOrder })} className="acceptButton">Accept</button>
+                            <Link to="/admin/declineOrder" ><button className="declineButton">Decline</button></Link>
+                        </div></li>
+                    })
+                }
 
+            </div>
+
+
+            <div className="orderList">    
+            
             <h1>Ongoing Orders:-</h1>
-            {
-                ongoingOrders.map((curOrder) => {
-                    return <div className="row">
-                        <div>Order Description: {curOrder.orderDescp}</div>
-                        <button onClick={() => handleFinishOrder({ curOrder })}>Finish</button>
-                    </div>
-                })
-            }
-
+                {
+                    ongoingOrders.map((curOrder) => {
+                        return <li><div className="row">
+                            <div>Order Description: {curOrder.orderDescp}</div>
+                            <button onClick={() => handleFinishOrder({ curOrder })}>Finish</button>
+                        </div></li>
+                    })
+                }</div>
 
         </div>
 

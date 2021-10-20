@@ -22,7 +22,7 @@ const data = {
         }
     ],
     curOrders :[{
-        orderDescp: "Rudolf Reindeer",
+        orderDescp: "Pizza Delivery",
         orderId: 1,
         riderId: 5,
         name: "Cristopher Robbins",
@@ -36,7 +36,7 @@ const data = {
         endCoordLng:-74.9903
     },
     {
-        orderDescp: "Santa's Reindeer",
+        orderDescp: "Stationery Item Pickup",
         orderId: 2,
         riderId: 5,
         name: "Cristopher Robbins",
