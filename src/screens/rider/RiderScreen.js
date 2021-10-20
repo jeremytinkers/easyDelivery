@@ -56,8 +56,8 @@ export default function RiderScreen(props) {
                     curRiderOrders.map((curOrder) => {
                         return <li><div className="row">
                             <div>Order Description: {curOrder.orderDescp}</div>
-                            <div>Stat Coordinates: {curOrder.startCoordLat} {curOrder.startCoordLat}</div>
-                            <div>End Coordinates: {curOrder.endCoordLat} {curOrder.endCoordLat}</div>
+                            <div>Stat Coordinates: {curOrder.startCoordLat} {curOrder.startCoordLng}</div>
+                            <div>End Coordinates: {curOrder.endCoordLat} {curOrder.endCoordLng}</div>
                             <button onClick={() => handleAccept({ curOrder })} className="acceptButton">Accept</button>
                             <button onClick={() => handleDecline({ curOrder })} className="declineButton">Decline</button>
                         </div></li>
