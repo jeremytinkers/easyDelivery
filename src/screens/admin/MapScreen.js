@@ -12,24 +12,25 @@ import { useParams } from "react-router";
 
 function Map() {
 
-    const { id } = useParams();
+    const { id } = useParams(); // gaining access to params.id from Route
 
+    //A 2d array that stores the start, end and rider coordinates respectively
     var coordinateSet = [[], [], []];
-    const orderCoords= data.curOrders.find((o) => o.orderId == id);
 
-    console.log(JSON.stringify(orderCoords));
-    
+    //Find the respective orderId from data.curOrders.
+    const orderCoords = data.curOrders.find((o) => o.orderId == id);
+
+    //Push start lat and lng coordinates
     coordinateSet[0].push(Number(orderCoords.startCoordLat));
-    console.log("t: " + orderCoords.startCoordLat)
     coordinateSet[0].push(Number(orderCoords.startCoordLng));
 
+    //Push end lat and lng coordinates
     coordinateSet[1].push(Number(orderCoords.endCoordLat));
     coordinateSet[1].push(Number(orderCoords.endCoordLng));
 
+    //Push rider lat and lng coordinates
     coordinateSet[2].push(Number(orderCoords.riderCoordLat));
     coordinateSet[2].push(Number(orderCoords.riderCoordLng));
-
-    console.log(coordinateSet);
 
     return (
         <GoogleMap

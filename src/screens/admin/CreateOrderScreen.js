@@ -1,10 +1,11 @@
 import { useState } from "react";
 import data from "../../data";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid'; //for unique order Ids
 
 
 export default function CreateOrderScreen(props) {
 
+    //newOrder holds results from create order form
     const [newOrder, setNewOrder] = useState({
         orderDescp: "",
         riderId: 0,
@@ -15,9 +16,10 @@ export default function CreateOrderScreen(props) {
 
     });
 
+    //Filter out only those riders that are available, so that select shows only those
     const availableRiders = data.riderData.filter((r) => r.status !== 0);
 
-    // Handler for form changes. Updates the states using hooks
+    // Handler for form changes. Updates the states
     function handleChange(e) {
         var { value, name } = e.target;
 
@@ -26,24 +28,32 @@ export default function CreateOrderScreen(props) {
             temp.orderDescp = value;
         } else if (name === "startCoordLat") {
             temp.startCoordLat = value;
-        } else if(name === "startCoordLng")  {
+        } else if (name === "startCoordLng") {
             temp.startCoordLng = value;
-        }else if (name === "endCoordLat") {
+        } else if (name === "endCoordLat") {
             temp.endCoordLat = value;
         } else {
             temp.endCoordLng = value;
         }
         setNewOrder(temp);
     }
+
+
     function addOrderHandler() {
 
         var t = newOrder;
+        //Generate new id
         var newOrderId = uuidv4();
-        console.log("Old orderset: " + JSON.stringify(data.curOrders));
-        t={...t, orderId: newOrderId};
-        t={...t, accepted:2};
+        //Append orderId
+        t = { ...t, orderId: newOrderId };
+        /*Append Accepted State
+        Do note:-
+        1-> Accepted
+        2-> Not Responded
+        0-> Declined */
+        t = { ...t, accepted: 2 };
+
         data.curOrders.push(t)
-        console.log("New orderset: " + JSON.stringify(data.curOrders));
         props.history.push("/admin");
     }
 
@@ -65,29 +75,28 @@ export default function CreateOrderScreen(props) {
                         name="startCoordLat"
                         placeholder="Enter Start Coordinate Lat"
                     />
-                     <input
+                    <input
                         type="number"
                         onChange={handleChange}
                         name="startCoordLng"
                         placeholder="Enter Start Coordinate Lng"
                     />
-                       <input
+                    <input
                         type="number"
                         onChange={handleChange}
                         name="endCoordLat"
                         placeholder="Enter End Coordinate Lat"
                     />
-                     <input
+                    <input
                         type="number"
                         onChange={handleChange}
                         name="endCoordLng"
                         placeholder="Enter End Coordinate Lng"
                     />
 
-                    {/* Get riders who are available from database */}
                     <select
                         onChange={(e) =>
-                            setNewOrder({ ...newOrder, riderId: (e.target.value)})}
+                            setNewOrder({ ...newOrder, riderId: (e.target.value) })}
                     >
                         {
                             availableRiders.map((curRider) => {
@@ -99,9 +108,9 @@ export default function CreateOrderScreen(props) {
                     </select>
 
                 </form>
-                    <button onClick={addOrderHandler}>
-                        Submit and Return Home
-                    </button>
+                <button onClick={addOrderHandler} className ="afterFormButton">
+                    Submit and Return Home
+                </button>
             </div>
         </div>
     )

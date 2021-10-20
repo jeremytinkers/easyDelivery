@@ -11,35 +11,36 @@ import MapScreen from "./screens/admin/MapScreen";
 export default function App() {
   return (
     <BrowserRouter>
-    <div className="grid-container">
-      {/* Header */}
-      <header className="row">
-        <Link to="/">
-          <h1>easyDelivery</h1>
-        </Link>
-      </header>
+      <div className="grid-container">
 
-      {/* Main */}
-      <main>
-        <Route path="/" component={HomeScreen} exact></Route>
-        {/* Admin Routes:- */}
-        <Route path="/admin" component={AdminScreen} exact></Route>
-        <Route path="/admin/createOrder" component={CreateOrderScreen} exact></Route>
-        <Route path="/admin/viewMap/:id" component={MapScreen} exact></Route>
+        {/* Header */}
+        <header className="row">
+          <Link to="/">
+            <h1>easyDelivery🏠</h1>
+          </Link>
+        </header>
 
-        {/* Rider Routes */}
-        <Route path="/rider" component={RiderLoginScreen} exact></Route>
-        <Route path="/rider/:id" component={RiderScreen} exact></Route>
-        <Route path="/rider/acceptOrder/:id?" component={AcceptScreen} exact></Route>
-      
-      </main>
+        {/* Main */}
+        <main>
+          <Route path="/" component={HomeScreen} exact></Route>
+          {/* Admin Routes:- */}
+          <Route path="/admin" component={AdminScreen} exact></Route>
+          <Route path="/admin/createOrder" component={CreateOrderScreen} exact></Route>
+          <Route path="/admin/viewMap/:id" component={MapScreen} exact></Route>
 
-      {/* Footer */}
-      <footer className="row center">Made With 🔥 by Jeremiah</footer>
+          {/* Rider Routes */}
+          <Route path="/rider" component={RiderLoginScreen} exact></Route>
+          <Route path="/rider/:id" component={RiderScreen} exact></Route>
+          <Route path="/rider/acceptOrder/:id?" component={AcceptScreen} exact></Route>
 
-    </div>
+        </main>
 
-  </BrowserRouter>
+        {/* Footer */}
+        <footer className="row center">Made With 🔥 by Jeremiah</footer>
+
+      </div>
+
+    </BrowserRouter>
   )
 }
 

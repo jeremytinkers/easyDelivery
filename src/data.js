@@ -1,3 +1,4 @@
+//A simulation of a database. "data" here serves as a skeleton of the schema of the actual database
 const data = {
     riderData: [
         {
@@ -27,6 +28,7 @@ const data = {
         riderId: 5,
         name: "Cristopher Robbins",
         accepted:0,
+        //Do note: accepted : 2-> rider has not responded yet, 1-> accepted order, 2 -> declined order
         riderCoordLat:47.4211,
         riderCoordLng:-72.9903,
         finished:0,
@@ -52,5 +54,5 @@ const data = {
     ]
 };
 
-//accepted : 2-> not responded yet, 1-> accepted order, 2 -> declined order
+
 export default data;

@@ -14,11 +14,12 @@ export default function AdminScreen(props) {
     return (
         <div>
             <div className="orderList">
+            {/* List out all Orders Assigned by Admin */}
                 <h1>Orders Status</h1>
                 {
                     data.curOrders.map((curOrder) => {
                         return <li><div className="row">
-                            <div>{curOrder.orderDescp}</div>
+                            <div>Order Description: {curOrder.orderDescp}</div>
                             <button onClick={() => handleMapRequest(curOrder)}>View On Map</button>
                             <div>Rider Id: {curOrder.riderId}</div>
                             {

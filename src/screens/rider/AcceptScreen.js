@@ -6,10 +6,11 @@ export default function AcceptScreen(props) {
     const curOrderId = props.location.search ? props.location.search.split("?")[1] : 1;
     console.log("rider id: " + curRiderId + "  | orderid: " + curOrderId);
 
-    var curCoord = "";
+    //store the rider Coordinates in the variables below
     var local_riderCoordLat = 0
     var local_riderCoordLng = 0
 
+    //Updates the local rider variables
     function handleChange(e) {
         var { value, name } = e.target;
 
@@ -20,27 +21,20 @@ export default function AcceptScreen(props) {
         }
     }
 
+    //Update data.curOrders with rider coordinates from user and set accepted to 1
     function submitHandler() {
-
-        console.log(data.curOrders);
         for (var i = 0; i < data.curOrders.length; i++) {
 
             if (data.curOrders[i].accepted === 2) {
-                //You can remove this later....
-                console.log("bfore acceptedyes: " + JSON.stringify(data.curOrders[i]));
                 if (Number(data.curOrders[i].riderId) === Number(curRiderId)) {
-                    console.log("bfore riderIdyes: " + JSON.stringify(data.curOrders[i]));
                     if (data.curOrders[i].orderId == curOrderId) {
-
                         data.curOrders[i] = { ...data.curOrders[i], riderCoordLat: local_riderCoordLat };
                         data.curOrders[i] = { ...data.curOrders[i], riderCoordLng: local_riderCoordLng };
                         data.curOrders[i] = { ...data.curOrders[i], accepted: 1 };
-                        console.log("after: " + JSON.stringify(data.curOrders[i]));
                     }
                 }
             }
         }
-        console.log(data.curOrders);
         const nextPath = "/rider/" + curRiderId;
         props.history.push(nextPath);
     }

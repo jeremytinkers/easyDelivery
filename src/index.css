@@ -24,6 +24,10 @@ body {
 	align-items: center;
 	justify-content: space-between;
 }
+ 
+.row.center{
+	justify-content: center;
+  }
 
 
 /* Header Stylings:- */
@@ -55,6 +59,7 @@ footer {
 	bottom: 0;
 }
 
+/* Button Stylings:- */
 button {
 	height: auto;
 	width: auto;
@@ -83,6 +88,7 @@ button:hover{
 	cursor: pointer;
 }
 
+/* Accept Button */
 .acceptButton{
 	background-color: green;
 	color: black;
@@ -93,6 +99,7 @@ button:hover{
 	color: green;
 }
 
+/* Decline Button */
 .declineButton{
 	background-color: rgb(226, 52, 52);
 	color: black;
@@ -103,19 +110,9 @@ button:hover{
 	color: rgb(219, 54, 54);
 }
 
-.createForm {
-	height: 70%;
-	width: 25%;
-	border: 0.2rem blue solid;
-	background-color: rgb(50, 223, 223);
-	margin: 2rem auto;
-	margin-top: 1.2rem;
-	padding: 2rem;
-	text-align: center;
-	justify-content: center;
-}
-
+/* Form Stylings */
 .createFormContainer {
+	margin-top: 1.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -123,17 +120,19 @@ button:hover{
 }
 
 .createForm {
-	height: auto;
+	height: 60%;
+	width: 40%;
 	border-radius: 1.6rem;
 	background-color: rgb(230, 189, 128);
 	border: 0.4rem black solid;
 	text-align: center;
+	padding-bottom: 2rem;
 }
 
 .createForm input {
 	padding: 0.4rem;
 	margin: 0.2rem;
-	width: 55%;
+	width: 50%;
 	border-radius: 0.4rem;
 	border: none;
 	text-align: center;
@@ -150,10 +149,10 @@ button:hover{
 
 .createForm button {
 	margin-top: 1rem;
-	margin-bottom: -1rem;
+	margin-bottom: -2rem;
 }
 
-
+/* List Of Order Stylings */
 .orderList{
 	border: 0.05rem goldenrod solid;
 	padding: 0.5rem 1rem;
@@ -174,6 +173,7 @@ button:hover{
 	list-style-type: none;
   }
   
+/* Container Class for general centering of elements */
 
   .container{
 	  display: flex;
@@ -185,19 +185,17 @@ button:hover{
 	margin-bottom: 2rem;
 
   }
-
-  
-.row.center{
-	justify-content: center;
-  }
   .container h1{
 	  display: block;
   }
+
+/* HomeScreen Row Styling */
+
   .homeRow{
 	  border: 0.1rem gold solid;
 	  border-radius: 0.6rem;
 	  margin-top: 5rem;
-	  margin-left: -12rem;
+	  margin-left: -13rem;
 	  margin-bottom: 5rem;
   }
 
